@@ -1,4 +1,5 @@
-import * as React from "react"
+import React from "react"
+import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
 // styles
 const pageStyles = {
@@ -41,36 +42,22 @@ const linkStyles = {
 // data
 const links = [
   {
-    text: "Documentation",
-    url: "https://www.gatsbyjs.com/docs/",
+    text: "Hello World",
+    url: "/helloworld/",
   },
   {
-    text: "Tutorials",
-    url: "https://www.gatsbyjs.com/tutorial/",
-  },
-  {
-    text: "Guides",
-    url: "https://www.gatsbyjs.com/tutorial/",
-  },
-  {
-    text: "API Reference",
-    url: "https://www.gatsbyjs.com/docs/api-reference/",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-  },
-  {
-    text: "Cheat Sheet",
-    url: "https://www.gatsbyjs.com/docs/cheat-sheet/",
-  },
+    text: 'createPage with context',
+    url: '/page-with-context/'
+  }
 ]
 
 // markup
 const IndexPage = () => {
+  const { title, siteUrl, description } = useSiteMetadata()
+
   return (
     <main style={pageStyles}>
-      <title>Home Page</title>
+      <title>{title}</title>
       <h1 style={headingStyles}>
         Congratulations
         <br />
@@ -80,8 +67,7 @@ const IndexPage = () => {
         </span>
       </h1>
       <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time.{" "}
+      {description}
         <span role="img" aria-label="Sunglasses smiley emoji">
           😎
         </span>
@@ -91,7 +77,7 @@ const IndexPage = () => {
           <li style={listItemStyles}>
             <a
               style={linkStyles}
-              href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
+              href={`${siteUrl}${link.url}`}
             >
               {link.text}
             </a>
