@@ -11,6 +11,10 @@ export const useSiteMetadata = () => {
               url
             }
             description
+            prettyPage {
+              title
+              description
+            }
           }
         }
       }

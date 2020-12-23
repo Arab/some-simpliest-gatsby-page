@@ -4,7 +4,6 @@ import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
 import { Links } from '../components/Links'
 
-// styles
 const pageStyles = {
   color: "#232129",
   padding: "96px",
@@ -15,23 +14,15 @@ const headingStyles = {
   marginBottom: 64,
   maxWidth: 320,
 }
+
 const headingAccentStyles = {
   color: "#663399",
 }
+
 const paragraphStyles = {
   marginBottom: 48,
 }
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
 
-
-
-// markup
 const IndexPage = () => {
   const { title, description } = useSiteMetadata()
 
